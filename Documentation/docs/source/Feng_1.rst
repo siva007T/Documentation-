@@ -5,11 +5,15 @@ Input
 ------
 A fastq file is used for storing biolgical sequence and it's quality score 
 
-| ``.withColumn (colName: String, col: Column)``
+Column Syntax - ``.withColumn (colName: String, col: Column)`` used to change the value, convert the datatype of an existing column, create a new column,
 
-``colName:String`` – specify a new column you wanted to create. use an existing column to update the value.
+| ``colName:String`` – specify a new column you wanted to create. use an existing column to update the value.
 
-``col:Column`` – column expression.
+| ``col:Column`` – column expression.
+
+Spark.read.text() - ``Spark.read.text(paths)`` used to load text files into DataFrame whose schema starts with a string column.
+
+| paths: It is a string, or list of strings, for input path(s).
 
 .. code-block:: 
     
@@ -68,10 +72,8 @@ We are importing pyspark.sql.functions as F
   * fastq.gz is the compressed version of fastq file.
   * The gz file doesn't need to be unzipped 
   * ``'dbfs'`` stands for DataBricks File System which is a distributed file system mounted into a Databricks workspace
-
-Example of a FASTQ file
-
-.. image:: ../build/download.png
+  * Example of a FASTQ file
+      .. image:: ../build/download.png
 
 
 .. code-block::

@@ -158,7 +158,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <p class="caption"><span class="caption-text">This Section</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="DataBricks.html">DataBricks</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="QC-analysis.html">QC-analysis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a></li>
@@ -214,50 +215,13 @@
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
 <p>Metagenomic datasets and their intermediate results from a typical project are measured to the order of Terabytes up to the Petabyte scale.  For example, the Mushroom Hot Springs Metagenome project has generated 2 terabases of sequence and requires 200-500 terabytes of disk space for analysis. JGI has been levaging DataBricks Spark via AWS EMR to perform large-scale metagenome analysis.  Preliminary results suggest that this architecture, combining automatic data parallelism with reproducible notebook-based analysis, could be an ideal solution for genomics data scientists to scale up their data pipelines.</p>
 <p>The goal of this project is to port our existing single-machine based software algorithms (in Java, C++, or Python) on the Spark platform and add them to a scalable metagenomics library.</p>
+</section>
+<section id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">#</a></h2>
+<p>The goal of this project is to port our existing single-machine based software algorithms (in Java, C++, or Python) on the Spark platform and add them to a scalable metagenomics library.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DataBricks.html">DataBricks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DataBricks.html#what-is-databricks">What is DataBricks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DataBricks.html#what-makes-databricks-unique">What makes DataBricks Unique?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="QC-analysis.html">QC-analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Feng_1.html#input">Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Feng_1.html#output-in-dataframe">Output in Dataframe:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Feng_1.html#explanation">Explanation:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Feng_2.html">Calculating Sequence Length, GC Content, AT Content, And Quality Score</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Feng_2.html#input">Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Feng_2.html#output">Output</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Feng_2.html#code-explanation">Code Explanation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Sean_1.html">Registering a new Java function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Sean_1.html#input">Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Sean_1.html#output">Output</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Sean_1.html#explanation">Explanation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Sean_2.html">Java UDF to output GC content to table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Sean_2.html#input">Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Sean_2.html#explanation">Explanation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="seanmid.html">Creating Your Own Java Functions for Spark</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Spark.html">Spark</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Spark.html#installation">Installation:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Spark.html#spark-functions-used-in-axolotl">Spark functions used in Axolotl</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -313,7 +277,8 @@
             <ul>
 <li><a class="reference internal" href="#">Welcome to Axolotl’s documentation!</a><ul>
 <li><a class="reference internal" href="#purpose">Purpose</a></li>
-<li><a class="reference internal" href="#background">Background</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#goal">Goal</a><ul>
 </ul>
 </li>
 </ul>

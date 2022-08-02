@@ -158,7 +158,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption"><span class="caption-text">This Section</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DataBricks.html">DataBricks</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="QC-analysis.html">QC-analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a></li>
@@ -171,7 +172,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-
 </ul>
 
 </div>
@@ -209,17 +209,28 @@
 <h1>Calculating Sequence Length, GC Content, AT Content, And Quality Score<a class="headerlink" href="#calculating-sequence-length-gc-content-at-content-and-quality-score" title="Permalink to this headline">#</a></h1>
 <section id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">#</a></h2>
-<p>s is a string of values
-quality_score measure the probability that a base is called incorrectly</p>
+<blockquote>
+<div><p>s is a string of values</p>
+<div class="line-block">
+<div class="line">quality_score measure the probability that a base is called incorrectly</div>
+</div>
+<p>Column Syntax - <code class="docutils literal notranslate"><span class="pre">.withColumn</span> <span class="pre">(colName:</span> <span class="pre">String,</span> <span class="pre">col:</span> <span class="pre">Column)</span></code> used to change the value, convert the datatype of an existing column, create a new column,</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">colName:String</span></code> – specify a new column you wanted to create. use an existing column to update the value.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">col:Column</span></code> – column expression.</div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
-      <span class="sd">&quot;&quot;&quot;docstring&quot;&quot;&quot;</span>
-      <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;docstring&quot;&quot;&quot;</span>
+<span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Keyword def that marks the start of the function header.
 Parameters (arguments) through which we pass values to a function.
 A colon (:) to mark the end of the function header
 A return statement to return a value from the function.</p>
+</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="nd">@udf</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">quality_score</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -253,7 +264,7 @@ A return statement to return a value from the function.</p>
 </div>
 <p>Output Explanation:</p>
 <blockquote>
-<div><p>The names ‘id’, ‘sid’, ‘Length’, ‘GC’,’ AT’, ‘GC+AT’, ‘GC%’, ‘N_count’, ‘average_qual’ are par</p>
+<div><p>The names ‘id’, ‘sid’, ‘Length’, ‘GC’,’ AT’, ‘GC+AT’, ‘GC%’, ‘N_count’, ‘average_qual’ are part of the file</p>
 <p>long,string,integer,double and float are data types</p>
 <p>Data types - a classification that specifies which type of value a variable has</p>
 <p>Long data type to contain integer numbers that are too large to fit in the Integer data type. The default value of Long is 0.</p>
@@ -306,12 +317,10 @@ return statement is used to end the execution of the function call and “return
 </div></blockquote>
 <p>Creating a new column named <code class="docutils literal notranslate"><span class="pre">GC</span></code></p>
 <blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">F.regexp_replace(F.col('seq'),'[CG]',''))</span></code> lets you replace the sequence of characters with CG</p></li>
-<li><p>The syntax of regexp_replace function is <code class="docutils literal notranslate"><span class="pre">'regexp_replace(str,</span> <span class="pre">regexp,</span> <span class="pre">rep</span> <span class="pre">[,</span> <span class="pre">position]</span> <span class="pre">)'</span></code></p></li>
-<li><p>regexp_replace function replaces all substrings of str that match regexp with rep.</p></li>
-<li><p>By subtracting the old column length with the new column length, we can get the <code class="docutils literal notranslate"><span class="pre">&quot;GC&quot;</span></code> column</p></li>
-</ul>
+<div><p><code class="docutils literal notranslate"><span class="pre">F.regexp_replace(F.col('seq'),'[CG]',''))</span></code> lets you replace the sequence of characters with CG
+* The syntax of regexp_replace function is <code class="docutils literal notranslate"><span class="pre">'regexp_replace(str,</span> <span class="pre">regexp,</span> <span class="pre">rep</span> <span class="pre">[,</span> <span class="pre">position]</span> <span class="pre">)'</span></code>
+* regexp_replace function replaces all substrings of str that match regexp with rep.
+* By subtracting the old column length with the new column length, we can get the <code class="docutils literal notranslate"><span class="pre">&quot;GC&quot;</span></code> column</p>
 </div></blockquote>
 <p>Creating a new column named <code class="docutils literal notranslate"><span class="pre">GC+AT</span></code></p>
 <blockquote>
@@ -330,7 +339,7 @@ return statement is used to end the execution of the function call and “return
 <p><code class="docutils literal notranslate"><span class="pre">.select</span></code> is used to select multiple columns</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>In this case, it’s used to select the columns: <code class="docutils literal notranslate"><span class="pre">'id','sid','Length','GC','AT','GC+AT','GC%','N_count',quality_score('qual').alias('average_qual')</span></code></p></li>
+<li><p>In this case, it’s used to select the columns: ‘id’, ‘sid’, ‘Length’, ‘GC’,’ AT’, ‘GC+AT’, ‘GC%’, ‘N_count’, ‘average_qual’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.alias</span></code> returns this column aliased with a new name. So <code class="docutils literal notranslate"><span class="pre">qual</span></code> will be called <code class="docutils literal notranslate"><span class="pre">average_qual</span></code></p></li>
 </ul>
 </div></blockquote>

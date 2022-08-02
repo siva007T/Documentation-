@@ -158,7 +158,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption"><span class="caption-text">This Section</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DataBricks.html">DataBricks</a></li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">QC-analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a></li>
@@ -171,7 +172,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Spark.html">Spark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-
 </ul>
 
 </div>
@@ -207,7 +207,8 @@
         <article role="main">
           <section id="qc-analysis">
 <h1>QC-analysis<a class="headerlink" href="#qc-analysis" title="Permalink to this headline">#</a></h1>
-<p>Quality Control is s</p>
+<p>Quality control (QC) is a prediction of the probability of an error in base calling. It serves as a compact way to communicate very small probabilities.
+A high quality scores implies that a base call is more reliable and less likely to be incorrect. In FASTQ files, quality scores are encoded into a compact form, which uses only 1 byte per quality value. In this encoding, the quality score is represented as the character with an ASCII code equal to its value + 33. There are several tools that are publically available for conducting quality control on raw FASTQ files</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a><ul>

@@ -23,7 +23,9 @@ Metagenomic datasets and their intermediate results from a typical project are m
 The goal of this project is to port our existing single-machine based software algorithms (in Java, C++, or Python) on the Spark platform and add them to a scalable metagenomics library.
  
  
-
+Goal
+----
+The goal of this project is to port our existing single-machine based software algorithms (in Java, C++, or Python) on the Spark platform and add them to a scalable metagenomics library.
 
 .. toctree::
   :maxdepth: 3
@@ -36,6 +38,8 @@ The goal of this project is to port our existing single-machine based software a
 
  
 .. toctree::
+   :caption: This Section
+   :hidden:
   
   
    DataBricks

@@ -3,20 +3,27 @@ Calculating Sequence Length, GC Content, AT Content, And Quality Score
 ============================================================================
 
 Input
------
-s is a string of values 
-quality_score measure the probability that a base is called incorrectly
+------
+  s is a string of values 
 
-.. Code-block::
+  | quality_score measure the probability that a base is called incorrectly
 
-  def function_name(parameters):
-	"""docstring"""
-	statement(s)
+  Column Syntax - ``.withColumn (colName: String, col: Column)`` used to change the value, convert the datatype of an existing column, create a new column,
 
-Keyword def that marks the start of the function header.
-Parameters (arguments) through which we pass values to a function.
-A colon (:) to mark the end of the function header
-A return statement to return a value from the function.
+  | ``colName:String`` – specify a new column you wanted to create. use an existing column to update the value.
+
+  | ``col:Column`` – column expression.
+
+  .. Code-block::
+
+    def function_name(parameters):
+    """docstring"""
+    statement(s)
+
+  Keyword def that marks the start of the function header.
+  Parameters (arguments) through which we pass values to a function.
+  A colon (:) to mark the end of the function header
+  A return statement to return a value from the function.
 
 
 .. code-block::
@@ -56,7 +63,7 @@ Output
 Output Explanation:
 
 
-  The names 'id', 'sid', 'Length', 'GC',' AT', 'GC+AT', 'GC%', 'N_count', 'average_qual' are par
+  The names 'id', 'sid', 'Length', 'GC',' AT', 'GC+AT', 'GC%', 'N_count', 'average_qual' are part of the file
 
   long,string,integer,double and float are data types 
 
@@ -69,7 +76,8 @@ Output Explanation:
 
 
 Code Explanation
------------
+-----------------
+
 .. code-block::
 
   @udf("float")
@@ -116,7 +124,7 @@ Creating a new column named ``'length'``
 
 Creating a new column named ``GC``
 
-  * ``F.regexp_replace(F.col('seq'),'[CG]',''))`` lets you replace the sequence of characters with CG
+  ``F.regexp_replace(F.col('seq'),'[CG]',''))`` lets you replace the sequence of characters with CG
   * The syntax of regexp_replace function is ``'regexp_replace(str, regexp, rep [, position] )'``
   * regexp_replace function replaces all substrings of str that match regexp with rep.
   * By subtracting the old column length with the new column length, we can get the ``"GC"`` column
@@ -133,7 +141,8 @@ Creating a new column named ``GC%``
 
 ``.select`` is used to select multiple columns
 
-  * In this case, it's used to select the columns: ``'id','sid','Length','GC','AT','GC+AT','GC%','N_count',quality_score('qual').alias('average_qual')``
+  * In this case, it's used to select the columns: 'id', 'sid', 'Length', 'GC',' AT', 'GC+AT', 'GC%', 'N_count', 'average_qual'
+ 
   * ``.alias`` returns this column aliased with a new name. So ``qual`` will be called ``average_qual``
 
 

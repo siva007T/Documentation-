@@ -3,9 +3,16 @@ Java UDF to output GC content to table
 
 Input
 ------
-``.withColumn (colName: String, col: Column)``
-``colName:String`` – specify a new column you wanted to create. use an existing column to update the value.
-``col:Column`` – column expression.
+Column Syntax - ``.withColumn (colName: String, col: Column)`` used to change the value, convert the datatype of an existing column, create a new column,
+
+| ``colName:String`` – specify a new column you wanted to create. use an existing column to update the value.
+
+| ``col:Column`` – column expression.
+
+``DataFrame.createOrReplaceTempView(name)`` - Creates or replaces a local temporary view with this DataFrame
+
+
+
 
 .. code-block::
 

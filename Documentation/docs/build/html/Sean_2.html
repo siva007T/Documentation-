@@ -158,7 +158,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption"><span class="caption-text">This Section</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DataBricks.html">DataBricks</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="QC-analysis.html">QC-analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Feng_1.html">Loading Input Data From a Gz File</a></li>
@@ -208,9 +209,14 @@
 <h1>Java UDF to output GC content to table<a class="headerlink" href="#java-udf-to-output-gc-content-to-table" title="Permalink to this headline">#</a></h1>
 <section id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">.withColumn</span> <span class="pre">(colName:</span> <span class="pre">String,</span> <span class="pre">col:</span> <span class="pre">Column)</span></code>
-<code class="docutils literal notranslate"><span class="pre">colName:String</span></code> – specify a new column you wanted to create. use an existing column to update the value.
-<code class="docutils literal notranslate"><span class="pre">col:Column</span></code> – column expression.</p>
+<p>Column Syntax - <code class="docutils literal notranslate"><span class="pre">.withColumn</span> <span class="pre">(colName:</span> <span class="pre">String,</span> <span class="pre">col:</span> <span class="pre">Column)</span></code> used to change the value, convert the datatype of an existing column, create a new column,</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">colName:String</span></code> – specify a new column you wanted to create. use an existing column to update the value.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">col:Column</span></code> – column expression.</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame.createOrReplaceTempView(name)</span></code> - Creates or replaces a local temporary view with this DataFrame</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyspark.sql.functions</span> <span class="k">as</span> <span class="nn">F</span>
 
 <span class="n">read</span><span class="o">=</span><span class="s1">&#39;dbfs:/52707.2.423369.GTCTAGGT-GTCTAGGT.fastq.gz&#39;</span>

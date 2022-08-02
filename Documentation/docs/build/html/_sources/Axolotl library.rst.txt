@@ -1,0 +1,40 @@
+Axolotl
+========
+
+Installation:
+-------------
+
+To install spark :
+
+.. note::
+
+ 
+  To use PySpark, first install it using pip:
+ 
+.. code-block:: console
+ 
+   $ !pip install pyspark
+ 
+=====
+
+To arrange the data by their id, name, sequence and quality, write these lines of code
+
+
+.. code-block:: 
+    
+   #note this won't work on older quality formats, which contains '@' in the quality string
+    from pyspark.sql import SparkSession
+    from pyspark.sql.functions import split, monotonically_increasing_id, length
+    spark = SparkSession.getActiveSession()
+    input_data = (spark.read.text('dbfs:/mnt/share.jgi-ga.org/tell-seq/zymo_T501/zymo_T501_S1
+    _L001_R1_001.fastq.gz', lineSep='@').limit(10)
+    .filter(length('value')>1))
+
+    input_data = (input_data
+        .withColumn('name', split('value', '\n').getItem(0))
+        .withColumn('seq', split('value', '\n').getItem(1))
+        .withColumn('qual', split('value', '\n').getItem(3))
+        .withColumn("id", monotonically_increasing_id())
+        .select('id', 'name', 'seq', 'qual')
+    )
+    input_data.show(2, truncate=False, vertical=True)

@@ -1,0 +1,70 @@
+Loading Input Data From a Gz File
+===========================================
+
+
+.. code-block:: 
+    
+   #note this won't work on older quality formats, which contains '@' in the quality string
+        import pyspark.sql.functions as F
+
+    read='dbfs:/1000.fastq.gz' 
+    # redefine line separater to '@' 
+    # remove empty lines
+    input_data = (spark.read.text(read, lineSep='@').filter(F.length('value')>1) )
+
+    # seperate the four attributes of a fastq record #convert delimiter separated String to an Array 
+    input_data = (input_data
+        .withColumn('name', F.split('value', '\n').getItem(0))  
+        .withColumn('seq', F.split('value', '\n').getItem(1))
+        .withColumn('qual', F.split('value', '\n').getItem(3))
+        .withColumn("id", F.monotonically_increasing_id())
+        .withColumn("sid", F.lit('s01'))
+        .select('id', 'name', 'sid', 'seq', 'qual')
+
+
+Output:
+
+.. code-block:: 
+
+  id:long
+  name:string
+  sid:string
+  seq:string
+  qual:string
+
+.. code-block:: 
+    
+ read='dbfs:/1000.fastq.gz' 
+
+.. Note::
+    
+ * Here we are calling a fastq file and defining it as 'read' 
+ * A fastq file is used for storing biolgical sequence and it's quality score
+ * The gz file doesn't need to be unzipped 
+
+.. code-block::
+
+  input_data = (spark.read.text(read, lineSep='@').filter(F.length('value')>1) )
+
+.. Note::
+ * redefining line separater to '@'
+ * spark.read.text() to read the fastq file 'read'
+ * Using .filter(F.length()) to remove empty lines in the file
+
+.. code-block::
+    
+ input_data = (input_data
+        .withColumn('name', F.split('value', '\n').getItem(0))  
+
+.. Note:: 
+ 
+ * .withColumn is used to add a new a column 
+ * F.split returns list in a singel line and \n is used to get rid of whitespace characters
+ * getItem() extracts a value from the column
+
+.. code-block::
+
+ .select('id', 'name', 'sid', 'seq', 'qual')
+
+.. Note:: 
+  .select is used to select multiple columns
